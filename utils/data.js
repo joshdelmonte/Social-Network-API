@@ -1,3 +1,4 @@
+//These are the names and descriptions that we will use to generate random data for our users
 const userNames = [
     'Adam',
     'Alex',
@@ -69,6 +70,16 @@ const userNames = [
     'Zach',
 ];
 
+thoughts = [
+    "This is sad",
+    "This is happy",
+    "This is funny",
+    "This is interesting",
+    "This is boring",
+    "This is exciting",
+    "This is scary",
+];
+
 
 const getRandomUserName = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
@@ -78,5 +89,15 @@ const getRandomUser = () => {
         age: Math.floor(Math.random() * 100),   
     }
 }
+
+const getRandomThought = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+const getRandomThoughts = () => {
+    return {
+        thoughts: getRandomThought(thoughts),
+    }
+}
+
+module.exports = { getRandomUser, getRandomThoughts };
 
 
