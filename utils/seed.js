@@ -35,7 +35,7 @@ for (let i = 0; i < users.length; i++) {
     }
 
     console.table(users);
-    console.log('all done!');
+    console.log('There all done!');
     process.exit(0);
 
 // // get all thoughts

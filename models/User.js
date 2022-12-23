@@ -4,7 +4,7 @@ const { Schema, model } = require('mongoose');
 // Schema to create Student model
 const userSchema = new Schema(
   {
-    usernane: {
+    username: {
       type: String,
       unique: true,
       required: true,
