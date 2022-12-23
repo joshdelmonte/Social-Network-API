@@ -1,72 +1,10 @@
 //These are the names and descriptions that we will use to generate random data for our users
 const userNames = [
-    'Adam',
-    'Alex',
-    'Alice',
-    'Amanda',
-    'Albert',
-    'Amy',
-    'Barbara',
-    'Bob',
-    'Bill',
-    'Ben',
-    'Bella',
-    'Carol',
-    'Charlie',
-    'Cindy',
-    'Chris',
-    'Chloe',
-    'David',
-    'Diana',
-    'Daniel',
-    'Doris',
-    'John',
-    'Jane',
-    'Jack',
-    'Jeen',
-    'Kharan',
-    'Kuthi',
-    'Kamal',
-    'Kamini',
-    'Linda',
-    'Lily',
-    'Lucy',
-    'Lala',
-    'Muugi',
-    'Muthu',
-    'Nethra',
-    'Nithya',
-    'Nirmala',
-    'Nirmal',
-    'Oscar',
-    'Prishanth',
-    'Praveen',
-    'Prabhu',
-    'Prabha',
-    'Rajesh',
-    'Rajini',
-    'Ravi',
-    'Ravindran',
-    'Saravanan',
-    'Sadha',
-    'Sathish',
-    'Sathya',
-    'Tamil',
-    'Tuuli',
-    'Uma',
-    'Umaima',
-    'Uvindu',
-    'Uvind',
-    'Vijay',
-    'Vijaya',
-    'Vijayalakshmi',
-    'Werner',
-    'Wendy',
+   
     'Xavier',
     'Yasmin',
     'Yasir',
     'Yasiru',
-    'Yasir',
     'Zach',
 ];
 
@@ -80,6 +18,34 @@ thoughts = [
     "This is scary",
 ];
 
+reactions = [
+    "Crying",
+    "Smiling",
+    "Lauging",
+    "Interested",
+    "Bored",
+    "Ecstatic",
+    "Cowering",
+];
+
+friend = [
+    
+    'Xavier',
+    'Yasmin',
+    'Yasir',
+    'Yasiru',
+    'Zach',
+];
+//emails for each corresponding user
+
+email = [
+    'Xaviermail@gmail.com',
+    'Yasminmail@gmail.com',
+    'Yasirmail@gmail.com',
+    'Yasirumail@gmail.com',
+    'Zachmail@gmail.com',
+
+];
 
 const getRandomUserName = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
@@ -98,6 +64,31 @@ const getRandomThoughts = () => {
     }
 }
 
-module.exports = { getRandomUser, getRandomThoughts };
+const getRandomReaction = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+const getRandomReactions = () => {
+    return {
+        reactions: getRandomReaction(reactions),
+    }
+}
+
+const getRandomFriend = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+const getRandomFriends = () => {
+    return {
+        friends: getRandomFriend(friend),
+    }
+}
+
+const getRandomEmail = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+const getRandomEmails = () => {
+    return {
+        email: getRandomEmail(email),
+    }
+}
+
+
+module.exports = { getRandomUser, getRandomThoughts, getRandomReactions, getRandomFriends, getRandomEmails };
 
 
