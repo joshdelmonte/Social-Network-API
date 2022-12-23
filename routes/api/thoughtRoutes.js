@@ -1,60 +1,31 @@
-
-// **`/api/thoughts`**
-
-// * `GET` to get all thoughts
-
-// * `GET` to get a single thought by its `_id`
-
-// * `POST` to create a new thought (don't forget to push the created thought's `_id` to the associated user's `thoughts` array field)
-
-// ```json
-// // example data
-// {### API Routes
-
-// **`/api/users`**
-
-// * `GET` all users
-
-// * `GET` a single user by its `_id` and populated thought and friend data
-
-// * `POST` a new user:
-
-// ```json
-// // example data
-// {
-//   "username": "lernantino",
-//   "email": "lernantino@gmail.com"
-// }
-// ```
-
-// * `PUT` to update a user by its `_id`
-
-// * `DELETE` to remove user by its `_id`
-
-// **BONUS**: Remove a user's associated thoughts when deleted.
-
-// ---
-
 const router = require('express').Router();
 
 const {
-    getAllUsers,
-    getUserById,
-    createUser,
-    updateUser,
-    deleteUser,
-    addFriend,
-    deleteFriend
-} = require('../../controllers/userControllers');
-// Set up GET all and POST at /api/users
-router.route('/').get(getAllUsers).post(createUser);
+    getAllThoughts,
+    getThoughtById,
+    createThought,
+    updateThought,
+    deleteThought,
+    addReaction,
+    deleteReaction
 
-// Set up GET one, PUT, and DELETE at /api/users/:id
 
-router.route('/:id').get(getUserById).put(updateUser).delete(deleteUser);
+ } = require('../../controllers/thoughtControllers');
+ 
+// **`/api/thoughts`** (get all thoughts) (get one thought by its `_id`) (create thought) (update thought by its `_id`) (delete thought by its `_id`) (create reaction stored in a single thought's `reactions` array field) (delete reaction by the reaction's `reactionId` value)
 
-// Set up POST and DELETE at /api/users/:userId/friends/:friendId
+// * `GET` to get all thoughts
+router.route('/').get(getAllThoughts).post(createThought);
 
-router.route('/:userId/friends/:friendId').post(addFriend).delete(deleteFriend);
+// * `GET` to get a single thought by its `_id`
+router.route('/:id').get(getThoughtById).put(updateThought).delete(deleteThought);
+
+// * `POST` to create a new thought (don't forget to push the created thought's `_id` to the associated user's `thoughts` array field)
+router.route('/:userId').post(createThought);
+
+//secion for reactions
+router.route('/:thoughtId/reactions').post(addReaction);
+
+router.route('/:thoughtId/reactions/:reactionId').delete(deleteReaction);
 
 module.exports = router;
