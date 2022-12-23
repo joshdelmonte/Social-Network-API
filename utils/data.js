@@ -28,7 +28,7 @@ reactions = [
     "Cowering",
 ];
 
-friend = [
+friends = [
     
     'Xavier',
     'Yasmin',

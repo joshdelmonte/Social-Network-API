@@ -10,8 +10,8 @@ const {
     deleteReaction
 
 
- } = require('../../controllers/thoughtControllers');
- 
+} = require('../../controllers/thoughtControllers');
+
 // **`/api/thoughts`**  (GET, POST) 
 
 // * `GET` to get all thoughts
@@ -19,12 +19,12 @@ router.route('/').get(getAllThoughts).post(createThought);
 
 // * `GET` to get a single thought by its `_id`
 router
-.route('/:id')
-.get(getThoughtById)
-// * `PUT` to update a thought by its `_id`
-.put(updateThought)
-// * `DELETE` to remove a thought by its `_id`
-.delete(deleteThought);
+    .route('/:thoughtId')
+    .get(getThoughtById)
+    // * `PUT` to update a thought by its `_id`
+    .put(updateThought)
+    // * `DELETE` to remove a thought by its `_id`
+    .delete(deleteThought);
 
 // **`/api/thoughts/:thoughtId/reactions`**  (POST, DELETE)
 
